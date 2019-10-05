@@ -2,8 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   Output
 } from '@angular/core';
+import { User } from '@services/user.model';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +15,11 @@ import {
 })
 export class HeaderComponent {
   title = 'Angular Advanced Features';
-  authenticated = false;
+  @Input() user: User;
 
-  @Output() logout = new EventEmitter<void>();
+  @Output() logout = new EventEmitter<boolean>();
 
   onLogout(): void {
-    this.logout.emit();
+    this.logout.emit(true);
   }
 }
