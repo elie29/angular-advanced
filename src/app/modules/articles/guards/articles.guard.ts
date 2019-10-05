@@ -13,10 +13,8 @@ export class ArticlesGuard implements CanActivate, CanLoad {
 
   canActivate(): Observable<boolean> {
     return this.store.select<User>('user').pipe(
-      tap(next => console.log(next)),
       map(user => user && user.authenticated),
       map(authenticated => {
-        console.log(authenticated);
         if (!authenticated) {
           this.router.navigate(['/auth/login']);
         }

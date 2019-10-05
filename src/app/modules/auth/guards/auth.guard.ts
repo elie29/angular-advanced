@@ -16,7 +16,6 @@ export class AuthGuard implements CanActivate {
    */
   canActivate(): Observable<boolean> {
     return this.store.select<User>('user').pipe(
-      tap(next => console.log(next)),
       map(user => user && user.authenticated),
       map(authenticated => {
         if (authenticated) {
