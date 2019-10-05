@@ -4,7 +4,6 @@ import {
   EventEmitter,
   HostBinding,
   Input,
-  OnChanges,
   Output
 } from '@angular/core';
 
@@ -16,22 +15,13 @@ import { Article } from '../../services/article.model';
   styleUrls: ['./article-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticleItemComponent implements OnChanges {
+export class ArticleItemComponent {
   @HostBinding('attr.class') css = 'row';
 
   @Input() article: Article;
   @Output() upvoteArticle = new EventEmitter<Article>();
   @Output() downvoteArticle = new EventEmitter<Article>();
   @Output() removedArticle = new EventEmitter<Article>();
-
-  minutes: number;
-
-  /**
-   * ngOnchanges not OnInit in case minutes change
-   */
-  ngOnChanges() {
-    this.minutes = this.article.getMinutes();
-  }
 
   upvote(): false {
     this.upvoteArticle.emit(this.article);

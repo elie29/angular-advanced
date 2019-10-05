@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { ArticleFormComponent } from './components/article-form/article-form.component';
+import { ArticleItemMetaComponent } from './components/article-item-meta/article-item-meta.component';
 import { ArticleItemVotesComponent } from './components/article-item-votes/article-item-votes.component';
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { ArticlesComponent } from './containers/articles/articles.component';
@@ -16,6 +17,7 @@ import { ArticlesService } from './services/articles.service';
     ArticleFormComponent,
     ArticleItemComponent,
     ArticleItemVotesComponent,
+    ArticleItemMetaComponent,
     FibonacciPipe,
     DynamicLabelDirective
   ],

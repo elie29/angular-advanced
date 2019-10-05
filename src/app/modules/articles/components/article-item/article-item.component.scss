@@ -1,7 +1,3 @@
-.meta {
-  color: #9A9A9A
-}
-
 .voters {
   clear: both;
   width: 100%;
@@ -9,17 +5,4 @@
 
 .list li:before {
   content: '';
-}
-
-.label {
-  margin-left: 4px !important;
-}
-
-.num-label {
-  margin: 0 2px 0 4px !important;
-  cursor: pointer;
-}
-
-.hide-label + .label {
-  display: none !important;
 }
