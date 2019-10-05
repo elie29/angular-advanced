@@ -1,7 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { API_URL } from './services/auth.service';
 
 const ROUTES: Routes = [
@@ -32,7 +33,8 @@ const ROUTES: Routes = [
     {
       provide: API_URL,
       useValue: 'https://httpbin.org/post'
-    }
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ]
 })
 export class AuthModule {}
