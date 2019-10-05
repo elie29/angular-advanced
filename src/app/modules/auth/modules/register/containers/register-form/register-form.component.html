@@ -1,35 +1,43 @@
-<form class="ui form teal segment">
-
+<form class="ui form teal segment" [formGroup]="form" (ngSubmit)="onRegister()">
   <h3 class="ui header">Create new user</h3>
 
-  <div class="ui negative message">{{ message }}</div>
+  <div class="ui negative message" *ngIf="message">{{ message }}</div>
 
+  <ng-container formGroupName="name">
     <div class="field">
       <label for="firstName">First Name:</label>
-      <input type="text" id="firstName"/>
+      <input type="text" id="firstName" formControlName="firstName" />
     </div>
     <div class="field">
       <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName"/>
+      <input type="text" id="lastName" formControlName="lastName" />
     </div>
+  </ng-container>
 
   <div class="field">
     <label for="email">Email:</label>
-    <input type="text" id="email"/>
+    <input type="text" id="email" formControlName="email" />
   </div>
 
   <div class="field">
     <label for="password">Password:</label>
-    <input type="text" id="password"/>
+    <input type="text" id="password" formControlName="password" />
   </div>
 
-  <div class="field">
-    <button class="ui basic teal button">
-      <i class="icon plus square"></i>
-      Add Language
-    </button>
-  </div>
+  <ng-container formArrayName="languages">
+    <div class="field">
+      <button class="ui basic teal button" type="button">
+        <i class="icon plus square"></i>
+        Add Language
+      </button>
+    </div>
+  </ng-container>
 
-  <button class="ui positive right floated button" type="submit">Register</button>
+  <button
+    class="ui positive right floated button"
+    type="submit"
+    [disabled]="form.invalid"
+  >Register
+  </button>
 
 </form>
