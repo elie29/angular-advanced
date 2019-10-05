@@ -6,8 +6,9 @@ import { ArticleFormComponent } from './components/article-form/article-form.com
 import { ArticleItemVotesComponent } from './components/article-item-votes/article-item-votes.component';
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { ArticlesComponent } from './containers/articles/articles.component';
-import { ArticlesService } from './services/articles.service';
+import { DynamicLabelDirective } from './directives/dynamic-label.directive';
 import { FibonacciPipe } from './pipes/fibonacci.pipe';
+import { ArticlesService } from './services/articles.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FibonacciPipe } from './pipes/fibonacci.pipe';
     ArticleFormComponent,
     ArticleItemComponent,
     ArticleItemVotesComponent,
-    FibonacciPipe
+    FibonacciPipe,
+    DynamicLabelDirective
   ],
   imports: [CommonModule, FormsModule],
   exports: [ArticlesComponent],

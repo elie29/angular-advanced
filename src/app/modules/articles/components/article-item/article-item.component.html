@@ -4,7 +4,10 @@
   <a class="ui large header" href="{{ article.getLink() }}" target="_blank">{{ article.getTitle() }}</a>
   <div class="meta">
     ({{ article.getMeta() }})
-    <i class="ui brown label">{{ article.getMinutes() | fibonacci }}</i>
+    <i class="ui brown label num-label" appDynamicLabel>{{ minutes | fibonacci }}</i>
+    <div class="ui left pointing teal label">
+      {{ minutes }} {{minutes > 1 ? "minutes" : "minute" }} to read
+    </div>
   </div>
   <ul class="ui big horizontal list voters">
     <li class="item"><a href (click)="upvote()"><i class="arrow up icon"></i>upvote</a></li>
