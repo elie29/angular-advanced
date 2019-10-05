@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-login-form',
   templateUrl: './login-form.component.html'
 })
-export class LoginFormComponent {}
+export class LoginFormComponent {
+  message = '';
+}
