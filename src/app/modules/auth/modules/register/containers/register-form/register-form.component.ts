@@ -6,6 +6,8 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 import { RegisterValidator } from '../../validators/register.valdiator';
 
@@ -33,8 +35,13 @@ export class RegisterFormComponent {
   });
   // Error message
   message: string;
+  loading = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   get languages(): FormArray {
     return this.form.get('languages') as FormArray;
@@ -89,8 +96,19 @@ export class RegisterFormComponent {
 
   onRegister(): void {
     this.message = '';
+    this.loading = true;
     if (this.form.valid) {
-      console.log(this.form.value);
+      const subscription = this.authService
+        .createUser(this.form.value)
+        .subscribe(next => {
+          this.message = next;
+          this.loading = false;
+          subscription.unsubscribe();
+          if (!next) {
+            // Pas d'erreur
+            this.router.navigate(['/']);
+          }
+        });
     }
   }
 

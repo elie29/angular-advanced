@@ -1,5 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { API_URL } from './services/auth.service';
 
 const ROUTES: Routes = [
   {
@@ -24,7 +27,12 @@ const ROUTES: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(ROUTES)],
-  providers: []
+  imports: [RouterModule.forChild(ROUTES), HttpClientModule],
+  providers: [
+    {
+      provide: API_URL,
+      useValue: 'https://httpbin.org/post'
+    }
+  ]
 })
 export class AuthModule {}

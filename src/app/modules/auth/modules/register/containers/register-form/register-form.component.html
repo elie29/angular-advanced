@@ -59,7 +59,7 @@
   <button
     class="ui positive right floated button"
     type="submit"
-    [disabled]="!form.valid"> <!-- pending or invalid -->
+    [disabled]="!form.valid || loading"> <!-- pending or invalid -->
     Register
   </button>
 
