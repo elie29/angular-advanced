@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@services/user.model';
 import { Store } from '@store';
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
   templateUrl: './root.component.html',
   styleUrls: ['./root.component.scss']
 })
-export class RootComponent {
+export class RootComponent implements OnInit {
   user$: Observable<User> = this.store.select<User>('user');
 
   constructor(
@@ -18,6 +18,10 @@ export class RootComponent {
     private router: Router,
     private store: Store
   ) {}
+
+  ngOnInit(): void {
+    this.authService.checkUserInLocalStorage();
+  }
 
   onLogout(): void {
     this.authService.logoutUser();
