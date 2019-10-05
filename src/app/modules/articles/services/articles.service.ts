@@ -2,9 +2,9 @@ import { Article } from './article.model';
 
 export class ArticlesService {
   private articles = [
-    new Article('Angular 5', 'http://angular.io', 3),
-    new Article('Javascript', 'http://eloquentjavascript.net', 7),
-    new Article('Typescript', 'https://www.typescriptlang.org', 2)
+    new Article('Angular 5', 'http://angular.io', 3, 5),
+    new Article('Javascript', 'http://eloquentjavascript.net', 7, 3),
+    new Article('Typescript', 'https://www.typescriptlang.org', 2, 8)
   ];
 
   public getArticles(): Article[] {
@@ -12,8 +12,9 @@ export class ArticlesService {
   }
 
   public add(title: string, href: string): void {
+    const time = 1 + Math.floor(Math.random() * 30);
     // immutable add
-    const article = new Article(title, href);
+    const article = new Article(title, href, 0, time);
     this.articles = [...this.articles, article];
   }
 

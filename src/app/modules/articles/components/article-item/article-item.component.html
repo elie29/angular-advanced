@@ -2,7 +2,10 @@
 
 <div class="twelve wide column">
   <a class="ui large header" href="{{ article.getLink() }}" target="_blank">{{ article.getTitle() }}</a>
-  <div class="meta">{{ article.getMeta() }}</div>
+  <div class="meta">
+    ({{ article.getMeta() }})
+    <i class="ui brown label">{{ article.getMinutes() | fibonacci }}</i>
+  </div>
   <ul class="ui big horizontal list voters">
     <li class="item"><a href (click)="upvote()"><i class="arrow up icon"></i>upvote</a></li>
     <li class="item"><a href (click)="downvote()"><i class="arrow down icon"></i>downvote</a></li>

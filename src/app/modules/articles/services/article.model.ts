@@ -1,8 +1,12 @@
 export class Article {
-  constructor(private title: string, private link: string, private votes = 0) {}
+  constructor(
+    private title: string,
+    private link: string,
+    private votes = 0,
+    private minutes = 0 // Time to read the article
+  ) {}
 
   getTitle(): string {
-    console.log(this.title); // in order to observe change detection effects
     return this.title;
   }
 
@@ -18,7 +22,11 @@ export class Article {
     return this.votes;
   }
 
+  getMinutes(): number {
+    return this.minutes;
+  }
+
   changeVote(vote: 1 | -1): Article {
-    return new Article(this.title, this.link, this.votes + vote);
+    return new Article(this.title, this.link, this.votes + vote, this.minutes);
   }
 }

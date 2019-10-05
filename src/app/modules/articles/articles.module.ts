@@ -7,13 +7,15 @@ import { ArticleItemVotesComponent } from './components/article-item-votes/artic
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { ArticlesComponent } from './containers/articles/articles.component';
 import { ArticlesService } from './services/articles.service';
+import { FibonacciPipe } from './pipes/fibonacci.pipe';
 
 @NgModule({
   declarations: [
     ArticlesComponent,
     ArticleFormComponent,
     ArticleItemComponent,
-    ArticleItemVotesComponent
+    ArticleItemVotesComponent,
+    FibonacciPipe
   ],
   imports: [CommonModule, FormsModule],
   exports: [ArticlesComponent],
