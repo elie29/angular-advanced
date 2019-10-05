@@ -9,13 +9,14 @@ import { ArticleItemVotesComponent } from './components/article-item-votes/artic
 import { ArticleItemComponent } from './components/article-item/article-item.component';
 import { ArticlesComponent } from './containers/articles/articles.component';
 import { DynamicLabelDirective } from './directives/dynamic-label.directive';
+import { ArticlesGuard } from './guards/articles.guard';
 import { FibonacciPipe } from './pipes/fibonacci.pipe';
 import { ArticlesService } from './services/articles.service';
 
 const ROUTES: Routes = [
   {
     path: 'articles',
-    canActivate: [], // Access allowed for logged users
+    canActivate: [ArticlesGuard], // Access allowed for logged users
     component: ArticlesComponent
   }
 ];

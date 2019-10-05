@@ -2,13 +2,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { API_URL } from './services/auth.service';
 
 const ROUTES: Routes = [
   {
     path: 'auth',
-    canActivate: [], // Access allowed for logged out users
+    canActivate: [AuthGuard], // Access allowed for logged out users
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'login' },
       {
