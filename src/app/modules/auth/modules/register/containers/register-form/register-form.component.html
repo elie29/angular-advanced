@@ -26,10 +26,18 @@
 
   <ng-container formArrayName="languages">
     <div class="field">
-      <button class="ui basic teal button" type="button">
+      <button class="ui basic teal button" type="button" (click)="addLanguage()">
         <i class="icon plus square"></i>
         Add Language
       </button>
+    </div>
+    <div class="field" *ngFor="let c of languages.controls; index as i;">
+      <div class="ui action mini input">
+        <input type="text" [formControlName]="i" placeholder="e.g. FR"/>
+        <button class="ui icon button" type="button" (click)="removeLanguage(i)">
+          <i class="trash alternate icon"></i>
+        </button>
+      </div>
     </div>
   </ng-container>
 

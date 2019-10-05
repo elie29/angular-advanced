@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -20,6 +20,18 @@ export class RegisterFormComponent {
   message: string;
 
   constructor(private fb: FormBuilder) {}
+
+  get languages(): FormArray {
+    return this.form.get('languages') as FormArray;
+  }
+
+  addLanguage(): void {
+    this.languages.push(this.fb.control(''));
+  }
+
+  removeLanguage(index: number): void {
+    this.languages.removeAt(index);
+  }
 
   onRegister(): void {
     this.message = '';
