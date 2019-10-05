@@ -8,4 +8,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'Angular Advanced Features';
+  authenticated = false;
 }

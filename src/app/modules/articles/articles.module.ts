@@ -31,7 +31,6 @@ const ROUTES: Routes = [
     DynamicLabelDirective
   ],
   imports: [CommonModule, FormsModule, RouterModule.forChild(ROUTES)],
-  exports: [ArticlesComponent],
   providers: [ArticlesService]
 })
 export class ArticlesModule {}

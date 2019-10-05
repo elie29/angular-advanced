@@ -1,7 +1,6 @@
 import memoize from 'lodash-es/memoize';
 
 export const fibonacci = memoize((num: number): number => {
-  console.log(num);
   if (num <= 2) {
     return 1;
   }
