@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { ArticleFormComponent } from './components/article-form/article-form.component';
 import { ArticleItemMetaComponent } from './components/article-item-meta/article-item-meta.component';
@@ -10,6 +11,14 @@ import { ArticlesComponent } from './containers/articles/articles.component';
 import { DynamicLabelDirective } from './directives/dynamic-label.directive';
 import { FibonacciPipe } from './pipes/fibonacci.pipe';
 import { ArticlesService } from './services/articles.service';
+
+const ROUTES: Routes = [
+  {
+    path: 'articles',
+    canActivate: [], // Access allowed for logged users
+    component: ArticlesComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -21,7 +30,7 @@ import { ArticlesService } from './services/articles.service';
     FibonacciPipe,
     DynamicLabelDirective
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule.forChild(ROUTES)],
   exports: [ArticlesComponent],
   providers: [ArticlesService]
 })
