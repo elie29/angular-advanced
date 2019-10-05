@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output
+} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +14,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 export class HeaderComponent {
   title = 'Angular Advanced Features';
   authenticated = false;
+
+  @Output() logout = new EventEmitter<void>();
+
+  onLogout(): void {
+    this.logout.emit();
+  }
 }

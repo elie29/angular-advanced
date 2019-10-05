@@ -10,7 +10,7 @@
         routerLinkActive="active green">Articles
       </a>
       <div class="right menu">
-        <a class="item" *ngIf="authenticated">Logout</a>
+        <a class="item" *ngIf="authenticated" (click)="onLogout()">Logout</a>
         <a class="item" routerLink="auth/login" routerLinkActive="active green">Login</a>
         <a class="item" routerLink="auth/register" routerLinkActive="active green">register</a>
       </div>
