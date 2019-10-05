@@ -15,7 +15,7 @@ export class RegisterValidator {
     control: AbstractControl
   ): Observable<ValidationErrors | null> {
     return timer(500).pipe(
-      take(1),
+      take(1), // in order to unsubscribe
       map(_ => {
         if (control.value === 'test@test.com') {
           return { forbiddenEmail: true };

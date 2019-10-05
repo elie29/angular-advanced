@@ -48,6 +48,45 @@ export class RegisterFormComponent {
     this.languages.removeAt(index);
   }
 
+  // FormControl Accessors
+  // ---------------------
+
+  accessed(control: AbstractControl): boolean {
+    return control.touched || control.dirty;
+  }
+
+  get isNameIsEmpty(): boolean {
+    const name = this.form.get('name');
+    return this.accessed(name) && name.hasError('emptyName');
+  }
+
+  get isLastNameMaxLength(): boolean {
+    const lastName = this.form.get('name.lastName');
+    return this.accessed(lastName) && lastName.hasError('maxlength');
+  }
+
+  get emailRequiredOrForbidden(): string {
+    const email: AbstractControl = this.form.get('email');
+    if (this.accessed(email) && email.hasError('email')) {
+      return 'Email is not valid';
+    }
+    if (this.accessed(email) && email.hasError('forbiddenEmail')) {
+      return 'Email is forbidden';
+    }
+    return null;
+  }
+
+  get passwordRequiredOrStrong(): string {
+    const password: AbstractControl = this.form.get('password');
+    if (this.accessed(password) && password.hasError('required')) {
+      return 'Password is required';
+    }
+    if (this.accessed(password) && password.hasError('strongPassword')) {
+      return 'Password is not strong';
+    }
+    return null;
+  }
+
   onRegister(): void {
     this.message = '';
     if (this.form.valid) {
