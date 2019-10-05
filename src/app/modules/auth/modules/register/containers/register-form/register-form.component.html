@@ -1,1 +1,35 @@
-<h1>Register form works</h1>
+<form class="ui form teal segment">
+
+  <h3 class="ui header">Create new user</h3>
+
+  <div class="ui negative message">{{ message }}</div>
+
+    <div class="field">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName"/>
+    </div>
+    <div class="field">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName"/>
+    </div>
+
+  <div class="field">
+    <label for="email">Email:</label>
+    <input type="text" id="email"/>
+  </div>
+
+  <div class="field">
+    <label for="password">Password:</label>
+    <input type="text" id="password"/>
+  </div>
+
+  <div class="field">
+    <button class="ui basic teal button">
+      <i class="icon plus square"></i>
+      Add Language
+    </button>
+  </div>
+
+  <button class="ui positive right floated button" type="submit">Register</button>
+
+</form>

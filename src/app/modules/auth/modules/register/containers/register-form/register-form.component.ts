@@ -4,4 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-register-form',
   templateUrl: './register-form.component.html'
 })
-export class RegisterFormComponent {}
+export class RegisterFormComponent {
+  // Error message
+  message = '';
+}
